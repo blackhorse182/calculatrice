@@ -1,9 +1,13 @@
-//script de la calculatrice
+//script for calculator
 
-//link DOM elements
-
+// Link DOM elements
+const display = document.getElementById('value');
+const buttons = document.querySelectorAll('.calculator span');
 
 // Initialize calculator state variables
+let currentInput = '';
+let previousInput = '';
+let operator = '';
 
 // Function to update the display
 
@@ -12,6 +16,12 @@
 // Function to perform calculations
 
 // Event listeners for button clicks
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        currentInput += button.textContent;
+        display.value = currentInput;
+    });
+});
 
 // Function to clear the display
 

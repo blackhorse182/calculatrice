@@ -84,12 +84,24 @@ body {
     text-transform: uppercase;
 }
 .calculator #clear {
-    grid-column: span 2;
+    grid-column: span 1;
     background: #f00;
-    width: calc(100% - 20px); /* Size of 2 buttons */
+    
 }
 .calculator #clear::before {
     background: linear-gradient(90deg, #d20000, #ffffff5c);
+    border-left: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+}
+
+.calculator #backspace {
+    grid-column: span 1;
+    background: #e96c06; /* Ensure the backspace button is #e96c06 */
+}
+
+.calculator #backspace::before {
+    background: linear-gradient(90deg, #e96c06, #ffffff5c);
     border-left: 1px solid #fff4;
     border-bottom: 1px solid #fff4;
     border-top: 1px solid #fff4;

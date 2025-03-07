@@ -18,7 +18,8 @@ let operator = '';
 // Event listeners for button clicks
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        // Handle button click
+        currentInput += button.textContent;
+        display.value = currentInput;
     });
 });
 

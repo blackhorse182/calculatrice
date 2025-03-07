@@ -15,22 +15,60 @@ let operator = '';
 
 // Function to update the display
 function updateDisplay() {
-    display.value = currentInput || '0';
+    display.value = currentInput ;
 }
 
 // Function to perform calculations
-
+function calculate() {
+    let result;
+    const prev = parseFloat(previousInput);
+    const current = parseFloat(currentInput);
+    if (isNaN(prev) || isNaN(current)) return;
+    switch (operator) {
+        case '+':
+            result = prev + current;
+            break;
+        case '-':
+            result = prev - current;
+            break;
+        case '*':
+            result = prev * current;
+            break;
+        case '/':
+            result = prev / current;
+            break;
+        default:
+            return;
+    }
+    currentInput = result.toString();
+    operator = '';
+    previousInput = '';
+}
 
 // Event listeners for number buttons
 numbers.forEach(number => {
     number.addEventListener('click', () => {
+        if (number.textContent === '00' && !currentInput.includes('.')) {
+            return; // Prevent "00" from being used without a decimal point
+        }
         currentInput += number.textContent;
         updateDisplay();
     });
 });
 
 // Event listener for operators
-
+operators.forEach(op => {
+    op.addEventListener('click', () => {
+        if (currentInput === '') return;
+        if (previousInput !== '') {
+            calculate();
+        }
+        operator = op.textContent;
+        previousInput = currentInput;
+        currentInput = '';
+        updateDisplay();
+    });
+});
 
 // Event listener for equal button
 equal.addEventListener('click', () => {
@@ -39,6 +77,12 @@ equal.addEventListener('click', () => {
 });
 
 // Event listener for decimal
+decimal.addEventListener('click', () => {
+    if (!currentInput.includes('.')) {
+        currentInput += '.';
+        updateDisplay();
+    }
+});
 
 // Event listener for clear
 clear.addEventListener('click', () => {

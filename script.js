@@ -1,4 +1,4 @@
-//script de la calculatrice
+//script for calculator
 
 // Link DOM elements
 const display = document.getElementById('value');

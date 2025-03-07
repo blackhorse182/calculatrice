@@ -9,7 +9,7 @@ body {
     height: 100vh;
     align-items: center;
     justify-content: center;
-    background-color: #202020;
+    background-color:linear-gradient(180deg, linen, rgb(150, 145, 141));
 }
 .container {
     position: relative;
@@ -20,12 +20,14 @@ body {
     box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
         10px 10px 70px rgba(0, 0, 0, 0.25), inset -5px -5px 15px rgba(0, 0, 0, 0.25),
         inset 5px 5px 15px rgba(0, 0, 0, 0.25);
+    background-color: #2f2f2f; /* Set a distinct background color for the calculator */
 }
 .calculator {
     position: relative;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    background-color: linear-gradient(180deg, #2f2f2f, #3f3f3f); /* Set background color */
 }
 .calculator input[type="text"] {
     grid-column: span 4;
@@ -106,12 +108,13 @@ body {
     border-bottom: 1px solid #fff4;
     border-top: 1px solid #fff4;
 }
-.calculator #add {
+.calculator .add{
     grid-row: span 2;
     height: calc(160px + 30px); /* Height of 2 buttons plus gap */
 }
 .calculator #equals {
     background: #2196f3; /* Ensure the equal button is #2196f3 */
+    
 }
 .calculator #equals::before {
     background: linear-gradient(90deg, #1479c9, #ffffff5c);

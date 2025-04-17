@@ -28,10 +28,6 @@ A simple calculator application built for educational purposes.
 
 1. Run the application:
 
-    ```bash
-    python main.py
-    ```
-
 2. Follow the on-screen instructions to perform calculations.
 
 ## Contributing
